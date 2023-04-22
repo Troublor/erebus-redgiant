@@ -1,3 +1,8 @@
+# **🫣 I am working on refurnituring this repo by adding source code and giving a detailed description of the benchmark and benchmark collection tool.**
+**The current content of this repo is the artifacts for peer review of the TSE publication.**
+
+Preprint can be found at: https://arxiv.org/abs/2212.12110
+
 # Erebus-Redgiant: Implementation of Attack Search and Vulnerability Localization
 
 This repository offers `erebus`, which is the implementation of the search algorithm for historical front-running attacks in Ethereum history and vulnerability localization technique from each attack by extracting influence traces.
