@@ -10,3 +10,13 @@ Main functionalities include:
   - Taint analysis
   - Structured call trace extraction
   - and more...
+
+## Requirement
+
+- Go 1.19 or later
+- GCC 12
+- Erigon Archive Node
+
+## Example
+
+See examples in [examples](./examples) folder.
