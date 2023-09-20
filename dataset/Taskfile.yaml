@@ -1,0 +1,17 @@
+version: 3
+
+tasks:
+  lint:
+    cmds:
+      - golangci-lint run --fix ./...
+  preconditions:
+    - sh: command -v golangci-lint 2>/dev/null
+      msg: 'golangci-lint not found. Please install it first.'
+
+  tidy:
+    cmds:
+      - go mod tidy
+
+  test:
+    cmds:
+      - go test ./...

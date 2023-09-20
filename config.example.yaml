@@ -1,0 +1,12 @@
+log:
+  trace: 'trace.log'
+eth:
+  rpc: 'ws://localhost:8545'
+troubeth:
+  url: 'http://localhost:2425'
+erigon:
+  rpc: 'localhost:9090'
+  datadir: 'blockchain/mainnet-erigon'
+mongo:
+  url: 'mongodb://localhost:27017'
+  database: 'erebus1'
