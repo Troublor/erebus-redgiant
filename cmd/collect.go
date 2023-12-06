@@ -83,13 +83,6 @@ var (
 		Default: "15s",
 		Desc:    "localize timeout",
 	}
-	cCollectNotify = config.Def{
-		Type:     config.Bool,
-		Key:      "notify",
-		KeyShort: "n",
-		Default:  false,
-		Desc:     "notify through telegram",
-	}
 )
 
 var cCollectGroup = config.NewDefGroup("collect",
@@ -102,7 +95,6 @@ var cCollectGroup = config.NewDefGroup("collect",
 	cCollectPrefetch,
 	cCollectWindowSearchTimeout,
 	cCollectLocalizeTimeout,
-	cCollectNotify,
 )
 
 var collectCmd = &cobra.Command{
@@ -128,7 +120,6 @@ func searchForAttacks() {
 		prefetch            = viper.GetInt(cCollectGroup.KeyOf(cCollectPrefetch))
 		windowSearchTimeout = viper.GetString(cCollectGroup.KeyOf(cCollectWindowSearchTimeout))
 		localizeTimeout     = viper.GetString(cCollectGroup.KeyOf(cCollectLocalizeTimeout))
-		notify              = viper.GetBool(cCollectGroup.KeyOf(cCollectNotify))
 	)
 	windowSearchTO, err := time.ParseDuration(windowSearchTimeout)
 	if err != nil {
@@ -141,29 +132,6 @@ func searchForAttacks() {
 
 	startTime := time.Now()
 	interrupted := false
-
-	if notify {
-		log.Info().Msg("I will tell you via Telegram when I exit either with or without error")
-		defer func() {
-			err := recover()
-			var msg string
-			if err != nil {
-				msg = fmt.Sprintf("Started At: %s\nStopped At: %s\nProgram panic: %s", startTime, time.Now(), err)
-			} else {
-				msg = fmt.Sprintf("Started At: %s\nStopped At: %s\nProgram exit without error", startTime, time.Now())
-			}
-			if !interrupted {
-				_, _ = http.Post(
-					fmt.Sprintf("https://troublor.xyz/telegram/notify/%s", "troublor"),
-					"text/plain",
-					strings.NewReader(msg),
-				)
-			}
-			if err != nil {
-				panic(err)
-			}
-		}()
-	}
 
 	sigs := make(chan os.Signal, 1)
 	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
