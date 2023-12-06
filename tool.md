@@ -1,7 +1,5 @@
 # Erebus-Redgiant: Implementation of Attack Search and Vulnerability Localization
 
-**Under construction: source code not published**
-
 This repository offers `erebus`, which is the implementation of the search algorithm for historical front-running attacks in Ethereum history and vulnerability localization technique from each attack by extracting influence traces.
 
 `erebus` searches for front-running attacks in the specified block range and save attacks to MongoDB database.
