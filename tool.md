@@ -6,16 +6,9 @@ This repository offers `erebus`, which is the implementation of the search algor
 For each found attack, `erebus` will analyze the exploited vulnerability, by extracting influence traces from the attack.
 Details can be found in our paper.
 
-## Only Executable before Acceptance
+## Executable Download
 
 The executable binary of `erebus` can be downloaded from the [Release](https://github.com/erebus-redgiant/tool/releases) page.
-
-We only provide our tool as executable binary files before our paper is accepted.
-There are several reasons.
-First, the source code of our implementation has some dependencies that will reveal the authors' identities.
-Second, we would like to avoid unauthorized use of our code before publication.
-
-We will open source our erebus after the paper is accepted.
 
 ## Usage
 
